@@ -164,7 +164,7 @@ module.exports = function (mains, opts) {
             deps = Object.keys(src.deps).sort();
             src = src.source;
         }
-        else if (opts.noParse && opts.noParse.indexOf(file) >= 0) {
+        else if (opts.noParse && (opts.noParse.indexOf(file) >= 0 || opts.noParse.indexOf(pkg.name) >= 0)) {
             deps = [];
         }
         else if (/\.json$/.test(file)) {
